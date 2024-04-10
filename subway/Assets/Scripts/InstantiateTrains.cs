@@ -6,7 +6,7 @@ public class InstantiateTrains : MonoBehaviour
 {
     public float delay = 2f;
     float nextTime = 0;
-    public float decreaseperdelay = 0.0001f;
+    public float decreaseperdelay = 5f;
     public GameObject trainPrefab;
 
     public Transform[] positionsTransform;

@@ -52,5 +52,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Subway-Surfer-Clone-CC1H.sln"
+    "dotnet.defaultSolution": "subway.sln"
 }

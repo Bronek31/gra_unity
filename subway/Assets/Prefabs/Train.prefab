@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8326368205196579960}
   - component: {fileID: 2460263265977204940}
   - component: {fileID: 5001068703603128614}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Train
   m_TagString: Train
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 8326368205196579961}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: -23.11}
+  m_LocalPosition: {x: 0, y: 1, z: -23.11}
   m_LocalScale: {x: 2.1205044, y: 3.4430442, z: 11.437297}
   m_ConstrainProportionsScale: 0
   m_Children: []

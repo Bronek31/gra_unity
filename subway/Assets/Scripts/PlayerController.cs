@@ -1,14 +1,24 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
     public Vector3 delta = new Vector3(3, 0, 0);
     public float transitionTime = .5f;
-    public float jumpForce = 5f; // Siła skoku
-    private bool isGrounded = true; // Czy gracz jest na ziemi?
+    public float jumpForce = 100f; 
+    public float jumpDuration = 0.05f; 
+    public float duckDuration = 0.5f; 
+    private bool isGrounded = true; 
 
     int position = 1;
+    Vector3 defaultScale;
+
+    void Start()
+    {
+        defaultScale = transform.localScale;
+        // Zablokuj rotację wokół wszystkich osi
+        GetComponent<Rigidbody>().freezeRotation = true;
+    }
 
     public void Update()
     {
@@ -29,7 +39,11 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        // Obsługa skoku
+        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            StartCoroutine(Duck());
+        }
+
         if (isGrounded && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)))
         {
             StartCoroutine(Jump());
@@ -48,16 +62,20 @@ public class PlayerController : MonoBehaviour
         yield return null;
     }
 
-    private IEnumerator Jump()
+    private IEnumerator Duck()
     {
-        // Zastosuj siłę skoku
-        GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-
-        // Odczekaj krótki czas, aby zapobiec wielokrotnemu skakaniu
-        yield return new WaitForSeconds(0.1f);
+        transform.localScale /= 2;
+        yield return new WaitForSeconds(duckDuration);
+        transform.localScale = defaultScale;
     }
 
-    // Sprawdzenie, czy gracz dotyka ziemi
+    private IEnumerator Jump()
+    {
+        GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        yield return new WaitForSeconds(jumpDuration);
+        isGrounded = false;
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Plane"))
