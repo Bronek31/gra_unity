@@ -4,9 +4,9 @@ using System.Collections;
 public class PlayerController : MonoBehaviour
 {
     public Vector3 delta = new Vector3(3, 0, 0);
-    public float transitionTime = .5f;
+    public float transitionTime = 1f;
     public float jumpForce = 100f; 
-    public float jumpDuration = 0.05f; 
+    public float jumpDuration = 0.01f; 
     public float duckDuration = 0.5f; 
     private bool isGrounded = true; 
 

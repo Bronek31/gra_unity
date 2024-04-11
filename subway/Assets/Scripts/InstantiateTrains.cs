@@ -6,38 +6,47 @@ public class InstantiateTrains : MonoBehaviour
 {
     public float delay = 2f;
     float nextTime = 0;
-    public float decreaseperdelay = 5f;
+    float nextTime2 = 20f; // Po 30 sekundach zaczyna się pojawiać w drugim spawnpoint
+    public float decreaseperdelay = 0.01f;
     public GameObject trainPrefab;
 
     public Transform[] positionsTransform;
+    
+    
 
-
-    Vector3 randomizePosition()
+    Vector3 randomizePosition(Transform[] positions)
     {
-        if(positionsTransform.Length == 1)
+        if (positions.Length == 1)
         {
-            return positionsTransform[0].position;
+            return positions[0].position;
         }
         else
         {
-            if(positionsTransform.Length == 0)
+            if (positions.Length == 0)
             {
                 return Vector2.zero;
             }
-            int randomInt = Random.Range(0,positionsTransform.Length);
-            return positionsTransform[randomInt].position;
+            int randomInt = Random.Range(0, positions.Length);
+            return positions[randomInt].position;
         }
     }
 
     private void Update()
     {
-        if(Time.time >= nextTime)
+        if (Time.time >= nextTime)
         {
-            
-            GameObject instance = Instantiate(trainPrefab,randomizePosition(),trainPrefab.transform.rotation, gameObject.transform); 
-            Destroy(instance,25f);
+            GameObject instance = Instantiate(trainPrefab, randomizePosition(positionsTransform), trainPrefab.transform.rotation, gameObject.transform);
+            Destroy(instance, 25f);
             delay -= decreaseperdelay;
             nextTime = Time.time + delay;
+            if (Time.time >= nextTime2)
+            {
+                GameObject instance2 = Instantiate(trainPrefab, randomizePosition(positionsTransform), trainPrefab.transform.rotation, gameObject.transform);
+                Destroy(instance2, 25f);
+                nextTime2 = nextTime;
+            }
         }
+
+        
     }
 }

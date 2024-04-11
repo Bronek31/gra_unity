@@ -37,7 +37,7 @@ public class TimeCounter : MonoBehaviour
     // Metoda wywoływana po kolizji z pociągiem
     void OnCollisionEnter(Collision col)
     {
-        if(col.gameObject.tag == "Train" || col.gameObject.tag == "barrier" )
+        if(col.gameObject.tag == "Train" || col.gameObject.tag == "barrier" || col.gameObject.tag == "up")
         {
             // Zatrzymaj grę i czas
             Time.timeScale = 0;
