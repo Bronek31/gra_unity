@@ -714,6 +714,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310956e5967cfc8428268b1385c37147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverUI: {fileID: 0}
+  bestScore: 0
 --- !u!1 &742879093
 GameObject:
   m_ObjectHideFlags: 0
@@ -935,7 +937,7 @@ GameObject:
   - component: {fileID: 845560945}
   - component: {fileID: 845560944}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Options
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1786,7 +1788,7 @@ GameObject:
   - component: {fileID: 1152784902}
   - component: {fileID: 1152784901}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Game_acc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1831,7 +1833,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Game speed
+  m_text: Game acc
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2290,6 +2292,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310956e5967cfc8428268b1385c37147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverUI: {fileID: 0}
+  bestScore: 0
 --- !u!1 &1401911677
 GameObject:
   m_ObjectHideFlags: 0

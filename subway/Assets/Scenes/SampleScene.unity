@@ -1158,7 +1158,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.953717, z: 0.30070576, w: 0}
-  m_LocalPosition: {x: 0, y: 5, z: 6.54}
+  m_LocalPosition: {x: 0, y: 6, z: 5}
   m_LocalScale: {x: 0.50000024, y: 0.5, z: 0.99348485}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2305,6 +2305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverUI: {fileID: 1405324088}
+  bestScore: 0
 --- !u!4 &3274751658955963975
 Transform:
   m_ObjectHideFlags: 0

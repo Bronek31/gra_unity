@@ -35,7 +35,7 @@ public class TimeCounter : MonoBehaviour
         currentScoreMinutes = Mathf.FloorToInt(elapsedTime / 60);
         currentScoreSeconds = Mathf.FloorToInt(elapsedTime) % 60;
         currentScoreMilliseconds = Mathf.FloorToInt((elapsedTime * 1000) % 1000);
-        currentScore = currentScoreMinutes * 60 * 1000 + currentScoreSeconds * 1000 + currentScoreMilliseconds;
+        currentScore = currentScoreMinutes * 60 * 1000 + currentScoreSeconds * 1000 + currentScoreMilliseconds + 2;
 
         // Jeśli gra nie jest zatrzymana, obliczaj czas normalnie
         if (!gameStopped)
@@ -71,7 +71,7 @@ public class TimeCounter : MonoBehaviour
             Time.timeScale = 0;
             gameStopped = true;
             gameOverobj.SetActive(true);
-
+            Debug.Log(currentScore);
             // Sprawdź, czy uzyskano nowy najlepszy wynik
             if (currentScore > bestScore)
             {
