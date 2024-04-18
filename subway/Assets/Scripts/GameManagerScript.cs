@@ -1,14 +1,17 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 public class GameManagerScript : MonoBehaviour
+<<<<<<< HEAD
 {
     public GameObject gameOverUI;
     public int bestScore;
     private TimeCounter timeCounter;
-
+    private float GameSpeed = 0.01f;
+    private float slider_speed_conv;
     void Start()
     {
+        GameSpeed = GetGameSpeedValue();
         // Odczytaj najlepszy wynik z pamięci urządzenia
         bestScore = PlayerPrefs.GetInt("BestScore", 0);
         // Znajdź obiekt zawierający skrypt TimeCounter
@@ -20,8 +23,6 @@ public class GameManagerScript : MonoBehaviour
         // Zapisz najlepszy wynik w pamięci urządzenia przed załadowaniem sceny MainMenu
         PlayerPrefs.SetInt("BestScore", bestScore);
         PlayerPrefs.Save();
-
-        // Załaduj scenę MainMenu
         SceneManager.LoadScene("MainMenu");
         Time.timeScale = 1;
     }
@@ -50,5 +51,18 @@ public class GameManagerScript : MonoBehaviour
                 PlayerPrefs.Save();
             }
         }
+    }
+    public void set_slider_speed(float slider_value){
+        slider_speed_conv = slider_value/100;
+    }
+    public void set_game_speed(){
+        GameSpeed = slider_speed_conv;
+        Debug.Log(GameSpeed);
+        PlayerPrefs.SetFloat("GameSpeed", GameSpeed);
+        PlayerPrefs.Save();
+        SceneManager.LoadScene("MainMenu");
+    }
+    public float GetGameSpeedValue(){
+        return PlayerPrefs.GetFloat("GameSpeed", 0.01f);
     }
 }

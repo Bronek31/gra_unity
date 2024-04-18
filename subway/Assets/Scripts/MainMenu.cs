@@ -4,7 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+
     public Text bestScoreText;
+    public GameObject SettingsObj;
 
     void Start()
     {
@@ -15,14 +17,25 @@ public class MainMenu : MonoBehaviour
         // Wyświetl najlepszy wynik na ekranie menu głównego
         bestScoreText.text = "Best Score: " + bestScore;
     }
-
-    public void PlayGame()
-    {
+    public void PlayGame(){
         SceneManager.LoadScene("SampleScene");
     }
 
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void SettingsMenu(){
+        GameObject[] objects = Resources.FindObjectsOfTypeAll<GameObject>();
+        foreach (GameObject obj in objects)
+        {
+            if (obj.name == "SettingsPanel")
+            {
+                SettingsObj = obj;
+                break;
+            }    
+        }
+        SettingsObj.SetActive(true);
     }
 }

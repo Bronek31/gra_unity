@@ -7,7 +7,7 @@ public class InstantiateTrains : MonoBehaviour
     public float delay = 2f;
     float nextTime = 0;
     float nextTime2 = 20f; // Po 30 sekundach zaczyna się pojawiać w drugim spawnpoint
-    public float decreaseperdelay = 0.01f;
+    public float decreaseperdelay = PlayerPrefs.GetFloat("GameSpeed", 0.01f);
     public GameObject trainPrefab;
 
     public Transform[] positionsTransform;
