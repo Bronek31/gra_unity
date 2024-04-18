@@ -40,7 +40,7 @@ public class GameManagerScript : MonoBehaviour
         // Sprawdź, czy aktualny wynik jest lepszy niż najlepszy wynik
         if (timeCounter != null)
         {
-            int currentScore = timeCounter.currentScore;
+            int currentScore = timeCounter.GetCurrentScore();
             if (currentScore > bestScore)
             {
                 // Jeśli tak, zaktualizuj najlepszy wynik
