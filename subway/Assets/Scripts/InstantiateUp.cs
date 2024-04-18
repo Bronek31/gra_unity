@@ -6,7 +6,7 @@ public class InstantiateUpPrefabs : MonoBehaviour
 {
     public float delay = 4f;
     float nextTime = 0;
-    public float decreasePerDelay = 0.02f;
+    public float decreasePerDelay = 2*PlayerPrefs.GetFloat("GameSpeed", 0.01f);
     float nextTime2 = 10f;
     public GameObject upPrefab; // Prefab "up"
 

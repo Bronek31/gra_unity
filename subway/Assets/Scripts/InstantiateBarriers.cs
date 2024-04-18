@@ -8,7 +8,7 @@ public class InstantiateBarriers : MonoBehaviour
     public float initialDelay = 1f;
     float nextTime2 = 10f;
     float nextTime = 0;
-    public float decreasePerDelay = 0.02f; // Zmieniłem nazwę zmiennej dla spójności
+    public float decreasePerDelay = 2*PlayerPrefs.GetFloat("GameSpeed", 0.01f); // Zmieniłem nazwę zmiennej dla spójności
     public GameObject barrierPrefab;
 
     public Transform[] positionsTransform;

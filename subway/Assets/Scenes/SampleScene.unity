@@ -1617,7 +1617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c454e30b6ff5194fb60389ee5744fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverobj: {fileID: 0}
+  gameOverobj: {fileID: 1405324088}
 --- !u!65 &1445328726
 BoxCollider:
   m_ObjectHideFlags: 0
