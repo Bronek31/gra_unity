@@ -12,43 +12,55 @@ public class PlayerController : MonoBehaviour
     public float duckDuration = 0.5f;
     private bool isGrounded = true;
 
+    Animator animator;
     int position = 1;
     Vector3 defaultScale;
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         defaultScale = transform.localScale;
         // Zablokuj rotację wokół wszystkich osi
         GetComponent<Rigidbody>().freezeRotation = true;
     }
 
     public void Update()
-    {
+    {   
+        animator.SetBool("Jump", false);
+        animator.SetBool("Left", false);
+        animator.SetBool("Right", false);
+        animator.SetBool("roll", false);
         if (position > 0)
         {
             if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow) || current_command == LEFT)
             {
+                animator.SetBool("Left", true);
                 position--;
                 StartCoroutine(moveLeft());
+                
             }
         }
         if (position < 2)
         {
             if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow) || current_command == RIGHT)
             {
+                animator.SetBool("Right", true);
                 position++;
                 StartCoroutine(moveRight());
+               
             }
         }
 
         if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) || current_command == DOWN)
         {
             StartCoroutine(Duck());
+            animator.SetBool("roll", true);
         }
 
         if (isGrounded && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || current_command == UP))
         {
             StartCoroutine(Jump());
+            animator.SetBool("Jump", true);
         }
         current_command = NONE;
     }

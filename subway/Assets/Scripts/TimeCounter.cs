@@ -4,10 +4,21 @@ public class TimeCounter : MonoBehaviour
 {
     private float startTime;
     private bool gameStopped = false;
-
+    public GameObject gameOverobj;
+    
     void Start()
     {
         startTime = Time.time;
+        gameStopped = false;
+        GameObject[] objects = Resources.FindObjectsOfTypeAll<GameObject>();
+        foreach (GameObject obj in objects)
+        {
+            if (obj.name == "GameOverScreenPlay")
+            {
+                gameOverobj = obj;
+                break;
+            }    
+        }
     }
 
     void OnGUI()
@@ -37,11 +48,12 @@ public class TimeCounter : MonoBehaviour
     // Metoda wywoływana po kolizji z pociągiem
     void OnCollisionEnter(Collision col)
     {
-        if(col.gameObject.tag == "Train" || col.gameObject.tag == "barrier" || col.gameObject.tag == "up")
+        if((col.gameObject.tag == "Train" || col.gameObject.tag == "barrier" || col.gameObject.tag == "up") && !gameStopped)
         {
             // Zatrzymaj grę i czas
             Time.timeScale = 0;
             gameStopped = true;
+            gameOverobj.SetActive(true);
         }
     }
 }
