@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InstantiateBarriers : MonoBehaviour
 {
-    public float delay = 4f;
+    public float delay = 8f;
     public float initialDelay = 1f;
     float nextTime2 = 10f;
     float nextTime = 0;

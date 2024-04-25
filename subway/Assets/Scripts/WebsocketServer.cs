@@ -9,7 +9,7 @@ public class MyWebSocketServer : MonoBehaviour
     {
         Debug.Log("MyWebSocketServer Starting...");
         playerControllerInstance = FindObjectOfType<PlayerController>();
-        var socket = new WebSocketServer("ws://localhost:8080"); //TODO this might need changing
+        var socket = new WebSocketServer("ws://192.168.0.106:2137"); //TODO this might need changing
         socket.AddWebSocketService<AuthBehaviour>("/Auth");
         socket.Start();
     }

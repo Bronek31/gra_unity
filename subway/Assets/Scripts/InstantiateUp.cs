@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InstantiateUpPrefabs : MonoBehaviour
 {
-    public float delay = 4f;
+    public float delay = 8f;
     float nextTime = 0;
     public float decreasePerDelay = 0.02f;
     float nextTime2 = 10f;

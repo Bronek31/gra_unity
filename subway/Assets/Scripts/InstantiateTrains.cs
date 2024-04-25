@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InstantiateTrains : MonoBehaviour
 {
-    public float delay = 2f;
+    public float delay = 4f;
     float nextTime = 0;
     float nextTime2 = 20f; // Po 30 sekundach zaczyna się pojawiać w drugim spawnpoint
     public float decreaseperdelay = 0.01f;

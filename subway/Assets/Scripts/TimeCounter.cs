@@ -54,8 +54,8 @@ public class TimeCounter : MonoBehaviour
             style.normal.textColor = Color.yellow; // Ustawiamy kolor tekstu na żółty
 
             GUI.Label(new Rect(Screen.width - 200, 10, 300, 200), string.Format("{0:00}{1:00}{2:000}", minutes, seconds, milliseconds), style);
-            style.fontSize = 20; // Ustawiamy rozmiar czcionki na 40
-            style.normal.textColor = Color.green; // Ustawiamy kolor tekstu na żółty
+            style.fontSize = 40; // Ustawiamy rozmiar czcionki na 40
+            style.normal.textColor = Color.yellow; // Ustawiamy kolor tekstu na żółty
             GUI.Label(new Rect(10,10, 300, 200), "Best Score: " + bestScore, style);
         }
 
